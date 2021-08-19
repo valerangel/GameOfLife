@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Paint {
-    private final int LENGTH = 60;
+    private final int LENGTH = 30;
 
     private JFrame jframe;
     private JPanel jpanel;
