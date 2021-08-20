@@ -1,18 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Paint {
-    private final int LENGTH = 30;
+public class Painter {
+    private final int LENGTH = 10;
 
     private JFrame jframe;
     private JPanel jpanel;
     private Graphics g;
     private GameOfLife gameOfLife;
 
-    public Paint(GameOfLife gameOfLife) {
+    public Painter(GameOfLife gameOfLife) {
         this.gameOfLife = gameOfLife;
-
-        this.jpanel = new JPanel(new BorderLayout());
 
         this.jframe = new JFrame("Game of Life");
         this.jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,8 +18,11 @@ public class Paint {
                 gameOfLife.getHeight() * LENGTH + 45);
         this.jframe.setVisible(true);
 
+
+        this.jpanel = new JPanel(new BorderLayout());
         this.jpanel.setSize(gameOfLife.getWidth() * LENGTH + 15,
                 gameOfLife.getHeight() * LENGTH + 45);
+
         this.jframe.add(this.jpanel);
 
         this.jframe.setResizable(false);
@@ -35,7 +36,7 @@ public class Paint {
         for (int i = 0; i < gameOfLife.getWidth(); i++) {
             for (int j = 0; j < gameOfLife.getHeight(); j++) {
                 if (gameOfLife.getBoard()[i][j] == CellStatus.ALIVE) {
-                    g.setColor(Color.white);
+                    g.setColor(Color.WHITE);
                     g.drawOval((int) ((i + 0.33) * LENGTH),
                             (int) ((j + 0.33) * LENGTH),
                             (int) (0.67 * LENGTH),
@@ -47,7 +48,8 @@ public class Paint {
 
     private void allBlack() {
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, this.gameOfLife.getWidth() * LENGTH,
+        g.fillRect(0, 0,
+                this.gameOfLife.getWidth() * LENGTH,
                 this.gameOfLife.getHeight() * LENGTH);
     }
 }
