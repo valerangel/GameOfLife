@@ -1,5 +1,5 @@
 public class GameOfLife {
-    private final double CONSTANT_FILL = 0.25;
+    private final double CONSTANT_FILL = 0.5;
     private CellStatus[][] board;
     private int height;
     private int width;
